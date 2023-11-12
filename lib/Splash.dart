@@ -1,8 +1,14 @@
 import "package:flutter/material.dart";
+import "package:qqd/main.dart";
 
-class Splash extends StatelessWidget{
+class Splash extends StatefulWidget{
   const  Splash({Key? key}) : super(key: key);
 
+  @override
+  State<Splash> createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
   @override
   void initState(){
     super.initState();
@@ -10,7 +16,10 @@ class Splash extends StatelessWidget{
 
   }
 
-
+  _navigatetohome()async{
+    await Future.delayed(Duration(milliseconds: 1500), () {});
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>MyHomePage(title: 'QQD',))); //MyHOmePage Must Change to login Page
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +27,7 @@ class Splash extends StatelessWidget{
     body: Center(
       child: Container(
         child: Text(
-          "Splash Screen New",
+          "Splash Screen",
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)
         ),
       ),
